@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const main = async () => {
     try {
-        let userId = '1434115771429318657'
+        let userId = '1451369381779447809'
         let next = -1
         let usersList = []
         while(true) {
