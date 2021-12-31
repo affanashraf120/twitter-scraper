@@ -12,6 +12,7 @@ const main = async () => {
                 const data = await sendRequest(userId, next)
                 sleep(66000)
                 usersList = [...usersList, ...data.users]
+                console.log(`Got = ${usersList.length}`)
                 next = data.next_cursor
             }
 
@@ -51,7 +52,8 @@ const sendRequest = async (userId, cursor) => {
 const getFilteredUsers = (usersList) => {
     let filteredUsers = []
     for(let i = 0; i < usersList.length; i++) {
-        if(usersList[i].name.includes('.sol')) {
+        let temp_name = usersList[i].name.toLowerCase()
+        if(temp_name.includes('.sol')) {
             filteredUsers.push(usersList[i])
         }
     }
